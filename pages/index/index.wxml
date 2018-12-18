@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+  <input type='text' confirm-type='done' value='{{newdata}}' placeholder='添加ToDo' bindconfirm='add' />
+  <h3>正在进行</h3>
+  <block wx:for="{{list}}" wx:key="index">
+    <view class="list" wx:if="{{!item.complete}}" bindtap='change' data-index="{{index}}">{{item.todo}}</view>
+  </block>
+   <h3>已经完成</h3>
+  <block wx:for="{{list}}" wx:key="index">
+    <view class="list done" wx:if="{{item.complete}}" bindtap='change' data-index="{{index}}">{{item.todo}}</view>
+  </block>
+</view>
